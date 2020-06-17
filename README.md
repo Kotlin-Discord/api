@@ -1,9 +1,8 @@
-# Template
+# API Client
 
-This repository provides a template that should be used to create any other
-new repositories under the Kotlin Discord organisation. It mostly exists
-to extend the centralised configuration in the `.github` repository, and to
-provide a few basic files.
+This project contains a light API client wrapper for making use of the API at
+[our site](https://kotlindiscord.com). It also provides a set of dataclasses which are
+used to define the structure of the data that is sent and received by the API - which allows
+us to keep everything in one place.
 
-If you use this repository as a template, please remember to rewrite this
-file to suit the project!
+We'll update this README again when we have some documentation to show you.
