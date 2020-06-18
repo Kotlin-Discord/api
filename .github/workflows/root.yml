@@ -22,11 +22,8 @@ jobs:
         run: |
           mkdir -p ~/.gradle
 
-          echo "githubToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.gradle/gradle.properties
           echo "kotdis.user=${{ secrets.MAVEN_USER }}" >> ~/.gradle/gradle.properties
           echo "kotdis.password=${{ secrets.MAVEN_PASSWORD }}" >> ~/.gradle/gradle.properties
-
-          gradle properties
 
       - name: Gradle (Build)
         run: sh gradlew build
@@ -36,7 +33,7 @@ jobs:
 
       - name: Rename artifact
         run: |
-          mv kord-extensions/build/libs/client-*.jar kord-extensions/build/libs/client.jar
+          mv build/libs/client-*.jar build/libs/client.jar
 
       - name: Upload artifact (JAR)
         uses: actions/upload-artifact@v1.0.0

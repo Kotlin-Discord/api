@@ -25,7 +25,7 @@ jobs:
 
       - name: Rename artifact
         run: |
-          mv kord-extensions/build/libs/client-*.jar kord-extensions/build/libs/client.jar
+          mv build/libs/client-*.jar build/libs/client.jar
 
       - name: Upload artifact (JAR)
         uses: actions/upload-artifact@v1.0.0
