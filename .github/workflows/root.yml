@@ -40,4 +40,4 @@ jobs:
 
         with:
           name: JAR
-          path: kord-extensions/build/libs/client.jar
+          path: build/libs/client.jar
