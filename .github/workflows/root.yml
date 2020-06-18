@@ -26,6 +26,8 @@ jobs:
           echo "kotdis.user=${{ secrets.MAVEN_USER }}" >> ~/.gradle/gradle.properties
           echo "kotdis.password=${{ secrets.MAVEN_PASSWORD }}" >> ~/.gradle/gradle.properties
 
+          gradle properties
+
       - name: Gradle (Build)
         run: sh gradlew build
 
