@@ -30,7 +30,7 @@ jobs:
         run: sh gradlew build
 
       - name: Gradle (Publish)
-        run: sh gradlew publish
+        run: sh gradlew publish --info --stacktrace
 
       - name: Rename artifact
         run: |
