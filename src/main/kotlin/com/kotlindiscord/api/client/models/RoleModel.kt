@@ -4,8 +4,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RoleModel(
-    val id: Long,
+        val id: Long,
 
-    val name: String,
-    val colour: Int
+        val name: String,
+        val colour: Int
 )

@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UserModel(
-    val id: Long,
+        val id: Long,
 
-    val username: String,
-    val discriminator: String,
-    val avatarUrl: String,
-    val roles: Set<Long> = setOf()
+        val username: String,
+        val discriminator: String,
+        val avatarUrl: String,
+        val roles: Set<Long> = setOf()
 )

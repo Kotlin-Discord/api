@@ -43,8 +43,8 @@ class APIClient(val apiKey: String, val baseUrl: String = "https://kotlindiscord
         }
     }
 
-    suspend fun createInfraction(infraction: InfractionModel) {
-        client.post<String?> {
+    suspend fun createInfraction(infraction: InfractionModel): InfractionModel {
+        return client.post {
             contentType(ContentType.Application.Json)
             url(infractionsRoute)
 
@@ -52,7 +52,7 @@ class APIClient(val apiKey: String, val baseUrl: String = "https://kotlindiscord
         }
     }
 
-    suspend fun createRole(role: RoleModel) {
+    suspend fun upsertRole(role: RoleModel) {
         client.post<String?> {
             contentType(ContentType.Application.Json)
             url(rolesRoute)
@@ -68,14 +68,14 @@ class APIClient(val apiKey: String, val baseUrl: String = "https://kotlindiscord
         }
     }
 
-    suspend fun getRoles(): RoleModel {
+    suspend fun getRoles(): List<RoleModel> {
         return client.get {
             contentType(ContentType.Application.Json)
             url(rolesRoute)
         }
     }
 
-    suspend fun createUser(role: UserModel) {
+    suspend fun upsertUser(role: UserModel) {
         client.post<String?> {
             contentType(ContentType.Application.Json)
             url(usersRoute)
