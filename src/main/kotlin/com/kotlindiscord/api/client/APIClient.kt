@@ -7,8 +7,8 @@ import com.kotlindiscord.api.client.models.UserModel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.features.defaultRequest
-import io.ktor.client.features.json.GsonSerializer
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.request.*
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
@@ -20,13 +20,7 @@ class APIClient(val apiKey: String, val baseUrl: String = "https://kotlindiscord
 
     val client = HttpClient(CIO) {
         install(JsonFeature) {
-            serializer = GsonSerializer {
-                disableHtmlEscaping()
-                enableComplexMapKeySerialization()
-                serializeNulls()
-                serializeSpecialFloatingPointValues()
-                setLenient()
-            }
+            serializer = KotlinxSerializer()
         }
 
         defaultRequest {
@@ -44,7 +38,8 @@ class APIClient(val apiKey: String, val baseUrl: String = "https://kotlindiscord
     }
 
     suspend fun createInfraction(infraction: InfractionModel): InfractionModel {
-        return client.post {
+        return client.post<InfractionModel> {
+            accept(ContentType.Application.Json)
             contentType(ContentType.Application.Json)
             url(infractionsRoute)
 
