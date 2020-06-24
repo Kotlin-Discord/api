@@ -13,12 +13,12 @@ import io.ktor.client.request.*
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 
-class APIClient(val apiKey: String, val baseUrl: String = "https://kotlindiscord.com/api") {
+class APIClient(private val apiKey: String, baseUrl: String = "https://kotlindiscord.com/api") {
     private val infractionsRoute = "$baseUrl/infractions"
     private val rolesRoute = "$baseUrl/roles"
     private val usersRoute = "$baseUrl/users"
 
-    val client = HttpClient(CIO) {
+    private val client = HttpClient(CIO) {
         install(JsonFeature) {
             serializer = KotlinxSerializer()
         }
@@ -37,8 +37,8 @@ class APIClient(val apiKey: String, val baseUrl: String = "https://kotlindiscord
         }
     }
 
-    suspend fun createInfraction(infraction: InfractionModel): InfractionModel {
-        return client.post<InfractionModel> {
+    suspend fun upsertInfraction(infraction: InfractionModel): InfractionModel {
+        return client.post {
             accept(ContentType.Application.Json)
             contentType(ContentType.Application.Json)
             url(infractionsRoute)
