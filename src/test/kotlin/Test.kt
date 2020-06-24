@@ -28,7 +28,7 @@ suspend fun main() {
     println(client.getUser(0L))
 
     println(
-            client.createInfraction(
+            client.upsertInfraction(
                     InfractionModel(
                             infractor = 0,
                             user = 0,
