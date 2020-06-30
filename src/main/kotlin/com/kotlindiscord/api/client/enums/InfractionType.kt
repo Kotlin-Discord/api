@@ -5,7 +5,8 @@ import javax.naming.InvalidNameException
 enum class InfractionType(val type: String) {
     KICK("Kick"),
     BAN("Ban"),
-    WARN("Warn");
+    WARN("Warn"),
+    MUTE("Mute");
 
     override fun toString(): String = this.type
 }
