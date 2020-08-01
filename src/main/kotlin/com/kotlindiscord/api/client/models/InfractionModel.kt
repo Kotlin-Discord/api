@@ -18,6 +18,6 @@ data class InfractionModel(
         val reason: String,
         val type: InfractionType,
 
-        val expires: LocalDateTime,
+        val expires: LocalDateTime? = null,
         val created: LocalDateTime
 )

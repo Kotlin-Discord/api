@@ -34,7 +34,6 @@ suspend fun main() {
                             user = 0,
                             reason = "Spam",
                             type = InfractionType.WARN,
-                            expires = LocalDateTime.now(),
                             created = LocalDateTime.now()
                     )
             )
