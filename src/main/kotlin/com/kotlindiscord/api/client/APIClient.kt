@@ -79,7 +79,7 @@ class APIClient(private val apiKey: String, baseUrl: String = "https://kotlindis
         }
     }
 
-    suspend fun getUser(id: Long): UserModel {
+    suspend fun getUser(id: Long): UserModel? {
         return client.get {
             contentType(ContentType.Application.Json)
             url("$usersRoute/$id")
