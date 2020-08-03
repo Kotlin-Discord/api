@@ -9,5 +9,7 @@ data class UserModel(
         val username: String,
         val discriminator: String,
         val avatarUrl: String,
-        val roles: Set<Long> = setOf()
+        val roles: Set<Long> = setOf(),
+
+        val present: Boolean = true
 )
